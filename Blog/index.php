@@ -27,7 +27,7 @@ and open the template in the editor.
                                 <div class="col-md-12">
 
                                     <h2>Blog City<br>
-                                    <h3>The best blog cite around!</h3>
+                                    <h3>The best blog site around!</h3>
                                 </div>
                             </div>
                         </div>
