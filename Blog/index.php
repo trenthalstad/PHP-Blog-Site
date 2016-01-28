@@ -34,32 +34,27 @@ and open the template in the editor.
 
                         <div class="container center">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <h3>Blogs!</h3>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <h3>Blog 1</h3>
                                  
                                     <img src=""  width=150px height=200px>
 								
                                     
 
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <h3>Blogs</h3>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <h3>Blog 2</h3>
                                  
                                       <img src=""width=150px height=200px>
 
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <h3>Blogs</h3>
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <h3>Blog 3</h3>
                                    
 				<img src=""width=150px height=200px>
 
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-3">
-                                    <h3>Blogs</h3>
-                                   
-                                      <img src=""width=150px height=200px>
-
-                                </div>
+                           
                             </div>
                         </div>		
 
