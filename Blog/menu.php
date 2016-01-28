@@ -20,6 +20,7 @@
                              <li> <a href="blog1.php">Blog 1</a></li> 
                                   <li> <a href="blog2.php">Blog 2</a></li> 
                                        <li> <a href="blog3.php">Blog 3</a></li> 
+                                       <li><a href="BlogCityReg.php">User Registration</a></li>
                                        <li> <a href="contact.php">Contact</a></li> 
                         <!--
                         <li class="dropdown">
