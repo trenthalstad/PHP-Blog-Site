@@ -18,6 +18,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/modernizr.custom.js"></script>
     </head>
     <body>
+     
 
         <?php
         include "menu.php";
