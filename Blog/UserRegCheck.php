@@ -1,17 +1,35 @@
-
-
 <?php
-require "Common.php";
-print_r($_POST);
-
-
+require "common.php";
 
 if (isset($_POST['UserName'])) {
+	
     $pwd = $_POST['Password'];
 
+	
+	//////// Check If User Name Exisits /////////////
 
+	
+	//$sql_check = "Select username Where username Like :checkUser";
+		$sql_check = "Select UserName From userinfo_tbl Where UserName Like :CheckUser";
+	
+	
+	$CheckUserName = filter_var($_POST['UserName'],FILTER_SANITIZE_STRING);
+	$sql_checkh = $pdo->prepare($sql_check);
+	$sql_checkh->bindparam(":CheckUser",$CheckUserName);
+	$checkrow = $sql_checkh->execute();
+	
+	$checkrow = $sql_checkh->fetch();
+	
+	if($sql_checkh->rowCount()>0)
+	{
+		unset($_POST);
+		header("Location: errorMessage.php");
+	}
+	
+	////////////////////////////////////
 
-    //create sql statement
+    
+        //create sql statement
     $sql_stmt = "INSERT INTO userinfo_tbl "
             . "(UserName, "
             . "FirstName, "
@@ -67,8 +85,11 @@ if (isset($_POST['UserName'])) {
     echo '<div id="newuserstatus">
         <p>User Was Successfully entered</p>
         </div>';
-} else {
 
+    
+}
+ else {
+    
 
     echo "        <div id='newuser' >
             <form method='POST' action='BlogCityReg.php'>
@@ -125,10 +146,11 @@ if (isset($_POST['UserName'])) {
                     </tbody>
                 </table>
             </form>
-            <p id='ErrorMssg'>
 
         </div>";
-}
+        
+ }
+
 ?>
 
 
@@ -140,33 +162,69 @@ if (isset($_POST['UserName'])) {
 
     </head>
     <body>
+        <!--
+        <div id='newuser' >
+            <form method='POST' action='BlogCityReg.php'>
+                <table >
+                    <tbody>
+                        <tr>
+                            <td colspan=2>New User</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td><input type='text' name='UserName'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Firstname</td>
+                            <td><input type='text' name='FirstName'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Lastname</td>
+                            <td><input type='text' name='LastName'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Adress</td>
+                            <td><input type='text' name='Address'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td><input type='text' name='City'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td><input type='text' name='State'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Zip</td>
+                            <td><input type='text' name='Zip'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type='text' name='Email'  size='25' /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type='password' name='Password'  size='25'/></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input type='password' name='Password'  size='25' /></td>
+                        </tr>
 
+                        <tr>
+                            <td></td>
+                            <td><input type='submit' value='Enter' name='newuserenter' /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
 
-        <script>
-            
-            
-            function validatepassword(theForm.Password)) {
-                var minMaxLength = /^[\s\S]{12,18}$/,
-                        upper = /[A-Z]/,
-                        lower = /[a-z]/,
-                        number = /[0-9]/,
-                        special = /[ !"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/;
+        </div>";
+        <div id="newuserstatus">
 
-                if (minMaxLength.test(password) &&
-                        upper.test(password) &&
-                        lower.test(password) &&
-                        number.test(password) &&
-                        special.test(password)
-                        ) {
-                    document.getElementById("ErrorMssg").innerHTML = "Password Okay<br>";
-                    return true;
-                }
-
-                return false;
-                document.getElementById("ErrorMssg").innerHTML = "Password Error<br>";
-            }
-
-        </script>
-        <br><a href="index.php">home</a>
+        </div>
+        -->
+        
+                <br><a href="index.php">home</a>
     </body>
 </html>
