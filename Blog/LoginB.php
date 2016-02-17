@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require "Common.php";
 
 if (!isset ($_session['LoginStatus']))
@@ -43,11 +43,7 @@ if (isset($_POST['usrName'])) {
 		$_SESSION['liusername'] = $x_usrName;
                 $_SESSION['UserID'] = $li_result['UserID'];
                 echo("<br> logged in as = ".$_SESSION['liusername']."<br>");  
-                if($_SESSION['liusername'] == " admin”)
-                {
-                    $_SESSION['Admin'] = "Admin";
-                
-                }
+                //took out admin for error purposes
 
     } else {
         echo 'Invalid password.';
