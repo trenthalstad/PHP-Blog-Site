@@ -13,6 +13,8 @@ try
              $e->getMessage();
      
  }
- session_start()
+
+ session_start();
+
 
 ?>

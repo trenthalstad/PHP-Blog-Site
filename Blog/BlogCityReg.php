@@ -1,23 +1,49 @@
-<?php
-require "Common.php";
-print_r($_POST);
+<!DOCTYPE html>
 
-<<<<<<< HEAD
+<?php
+
+	require "Common.php";  //Database and Session_Start
+	
+	// Don't allow users to see this page without being logged in
+	if(!isset($_SESSION['LoginStatus']))  
+		{
+		header("Location: index.php");	
+		} 
+?>
+
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" type="text/css"  href="css/styles.css">
+
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+</head>
+<body>
+   <?php
+        include "menu.php";
+        ?>
+		<div class="container toppad content2">
+		<div class="row">
+	
+		<div class="col-md-12">
+<?php
+
+
+
 if (isset($_POST['UserName'])) {
     $pwd = $_POST['Password'];
-=======
-if (isset($_POST['username'])) {
-    $pwd = $_POST['password'];
->>>>>>> origin/master
 
 
     
     //create sql statement
-<<<<<<< HEAD
     $sql_stmt = "INSERT INTO userinfo_tbl "
-=======
-    $sql_stmt = "INSERT INTO tbl_user "
->>>>>>> origin/master
             . "(UserName, "
             . "FirstName, "
             . "LastName, "
@@ -25,11 +51,7 @@ if (isset($_POST['username'])) {
             . "City, "
             . "State, "
             . "Zip, "
-<<<<<<< HEAD
             . "Email, "
-=======
-            . "Eamil, "
->>>>>>> origin/master
             . "Password) "
             . "VALUES "
             . "(:UserName, "
@@ -39,18 +61,13 @@ if (isset($_POST['username'])) {
             . ":City, "
             . ":State, "
             . ":Zip, "
-<<<<<<< HEAD
             . ":Email, "
-=======
-            . ":Eamil, "
->>>>>>> origin/master
             . ":Password)";
 
     //prepare the sql statement
     $sqlh = $pdo->prepare($sql_stmt);
 
     //sanitize the input
-<<<<<<< HEAD
     $in_username = filter_var($_POST['UserName'], FILTER_SANITIZE_STRING);
     $in_firstname = filter_var($_POST['FirstName'], FILTER_SANITIZE_STRING);
     $in_lastname = filter_var($_POST['LastName'], FILTER_SANITIZE_STRING);
@@ -59,40 +76,20 @@ if (isset($_POST['username'])) {
     $in_state = filter_var($_POST['State'], FILTER_SANITIZE_STRING);
     $in_zip = filter_var($_POST['Zip'], FILTER_SANITIZE_STRING);
     $in_email = filter_var($_POST['Email'], FILTER_SANITIZE_STRING);
-=======
-    $in_username = filter_var($_POST['Username'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['Firstname'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['Lastname'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['Address'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['City'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['State'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['Zip'], FILTER_SANITIZE_STRING);
-    $in_username = filter_var($_POST['Eamil'], FILTER_SANITIZE_STRING);
->>>>>>> origin/master
     $in_password = filter_var($_POST['Password'], FILTER_SANITIZE_STRING);
 
     //hash the password
     $in_password = password_hash($in_password, PASSWORD_DEFAULT);
 
     //bind the parameters
-<<<<<<< HEAD
     $sqlh->bindparam(":UserName", $in_username);
     $sqlh->bindparam(":FirstName", $in_firstname);
     $sqlh->bindparam(":LastName", $in_lastname);
-=======
-    $sqlh->bindparam(":Username", $in_username);
-    $sqlh->bindparam(":Firstname", $in_firstname);
-    $sqlh->bindparam(":Lastname", $in_lastname);
->>>>>>> origin/master
     $sqlh->bindparam(":Address", $in_address);
     $sqlh->bindparam(":City", $in_city);
     $sqlh->bindparam(":State", $in_state);
     $sqlh->bindparam(":Zip", $in_zip);
-<<<<<<< HEAD
     $sqlh->bindparam(":Email", $in_email);
-=======
-    $sqlh->bindparam(":Email", $in_eamil);
->>>>>>> origin/master
     $sqlh->bindparam(":Password", $in_password);
 
     //excecute the sqlstatement
@@ -108,11 +105,7 @@ if (isset($_POST['username'])) {
     
 
     echo "        <div id='newuser' >
-<<<<<<< HEAD
             <form method='POST' action='BlogCityReg.php'>
-=======
-            <form method='POST' action='NewUserRegistration.php'>
->>>>>>> origin/master
                 <table >
                     <tbody>
                         <tr>
@@ -173,16 +166,21 @@ if (isset($_POST['username'])) {
 
 ?>
 
+</div>
+</div>
+</div>
+       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="js/jquery.isotope.js"></script>
 
-<html>
-    <head>
-        <title></title>
+        <script src="js/owl.carousel.js"></script>
 
-
-
-    </head>
-    <body>
-     
-                <br><a href="index.php">home</a>
+        <!-- Javascripts
+        ================================================== -->
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
