@@ -16,7 +16,11 @@ if (!isset ($_session['LoginStatus']))
 if (isset($_POST['usrName'])) {
     echo "Login true <br><br>";
 
+<<<<<<< HEAD
     $sql_li_stmt = "Select UserName, Password "
+=======
+    $sql_li_stmt = "Select UserName, Password, UserID "
+>>>>>>> origin/master
             . "From userinfo_tbl "
             . "where UserName=:usrname";
     $sqlh_li = $pdo->prepare($sql_li_stmt);
@@ -29,9 +33,17 @@ if (isset($_POST['usrName'])) {
 
     $li_result = $sqlh_li->fetch();
 
+<<<<<<< HEAD
 //    print_r($li_result['Password'] . "<br><br>"); //for testing
 
     $hash = $li_result['Password'];
+=======
+    //print_r($li_result['Password'] . "<br><br>"); //for testing
+    print_r($li_result['UserID'] . "<br><br>"); //for testing
+
+    $hash = $li_result['Password'];
+    
+>>>>>>> origin/master
 
 
     if (password_verify($_POST['usrpwd'], $hash)) {
@@ -39,7 +51,13 @@ if (isset($_POST['usrName'])) {
 		
 		$_SESSION['LoginStatus'] = true;
 		$_SESSION['liusername'] = $x_usrName;
+<<<<<<< HEAD
                 echo("<br> logged in as = ".$_SESSION['liusername']."<br>");  
+=======
+                $_SESSION['UserID'] = $li_result['UserID'];
+                echo("<br> logged in as = ".$_SESSION['liusername']."<br>");  
+                //took out admin for error purposes
+>>>>>>> origin/master
 
     } else {
         echo 'Invalid password.';

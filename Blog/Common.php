@@ -13,8 +13,12 @@ try
              $e->getMessage();
      
  }
+<<<<<<< HEAD
 
  session_start();
 
+=======
+ //session_start()
+>>>>>>> origin/master
 
 ?>
